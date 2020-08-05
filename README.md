@@ -8,7 +8,7 @@ The objective of this project is to make a quiz website that can let the student
 
 ## Installation
 
-Clone or download the repository, then you need to upload the quiz.sql database to phpmyadmin. Find the folder on localhost and you would be able to run the project. Login using the username and password located on users.txt.
+Clone or download the repository, then you need to import the quiz.sql database to phpmyadmin. Find the folder on localhost and you would be able to run the project. Login using the username and password located on users.txt.
 
 ## Technologies Used
 
