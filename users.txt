@@ -1,0 +1,13 @@
+admin:
+username pass
+test2 1234
+
+teacher: 
+username pass
+sombut 1234 gelo atienza
+uraiawan 1234 william smith
+
+student:
+username pass
+54310104 1234 caloy montes
+

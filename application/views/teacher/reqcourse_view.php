@@ -1,0 +1,95 @@
+<!-- Begin content -->
+<!-- Right side column contains the navbar and content of the page -->
+<aside class="right-side">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			<span class="glyphicon glyphicon-send"></span> <?php echo $pagetitle;?>
+			<small><?php echo $pagesubtitle;?></small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><?php echo anchor('admin', '<i class="fa fa-dashboard"></i> Main Page');?></li>
+			<li><?php echo anchor('admin/users', 'User Management');?></li>
+			<li class="active"><?php echo $pagetitle;?></li>
+		</ol>
+	</section>
+	<section class="content">
+		<h4 class="page-header">
+			<small></small>
+		</h4>
+
+		<?php
+		if (isset($msg_error)) {
+
+			echo "
+			<script>
+			Messenger.options = {
+				extraClasses: 'messenger-fixed messenger-on-top',
+				theme: 'bootstrap'
+			}
+			Messenger().post({
+				message: '".$msg_error."',
+				type: 'danger',
+				hideAfter: 7,
+				showCloseButton: true
+			});
+			</script>";
+		}
+		$attr = array(
+			'role' => 'form',
+			'method' => 'post'
+			);
+		echo '<form method="post" enctype="multipart/form-data">';
+		?>
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+				<?php if (isset($msg_info)) { ?>
+				<div class="alert alert-success" style="min-width: 343px">
+					<i class="fa fa-check"></i>
+					<?=$msg_info?>
+				</div>
+				<?php } ?>
+				<?php if (isset($msg_err)) { ?>
+				<div class="alert alert-danger" style="min-width: 343px">
+					<i class="fa fa-ban"></i>
+					<?=$msg_err?>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<!-- Begin request box -->
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">
+							Form
+						</h3>
+					</div>
+					<div class="box-body">
+						<div class="form-group<?php if(form_error('code')) echo ' has-error';?>">
+							<?php 
+							echo form_label('Subject Code <span class="text-danger">*</span>', 'code');
+							echo form_input(array(
+								'id'=>'code',
+								'name'=>'code',
+								'value'=>$subjectInfo['code'],
+								'type'=>'text',
+								'class'=>'form-control',
+								'placeholder'=>'Insert subject code'));
+							echo form_error('code', '<span class="label label-danger">', '</span>');
+							?>
+						</div>
+					</div>
+					<div class="box-footer text-right">
+					<?php
+					echo form_submit('submit', 'Import data', 'class="btn btn-primary"');
+					?>
+					</div>
+				</div>
+			</div>
+		<!-- End Upload form -->
+		</div>
+	
+		<?php form_close(); ?>
+<!-- End content -->
